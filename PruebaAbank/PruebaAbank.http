@@ -1,0 +1,53 @@
+@PruebaAbank_HostAddress = http://localhost:5024/api/usuario
+
+###
+GET {{PruebaAbank_HostAddress}}
+Accept: application/json
+
+
+### buscar por telefono y password
+POST {{PruebaAbank_HostAddress}}/login
+Content-Type: application/json
+{
+    "Telefono" : "7890-1234",
+    "Password" : "MiPasswordSeguro123"
+}
+
+###
+POST {{PruebaAbank_HostAddress}}
+Content-Type: application/json
+Accept: application/json
+{
+  "nombres": "Jonathan",
+  "apellidos": "Aguirre",
+  "fechaNacimiento": "1992-10-03T00:00:00Z",
+  "direccion": "San Salvador, El Salvador",
+  "password": "MiPasswordSeguro123",
+  "telefono": "7890-1234",
+  "email": "jairo.aguirre@abank.com.sv",
+  "estado": "A"
+}
+
+###
+GET {{PruebaAbank_HostAddress}}/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0IiwidW5pcXVlX25hbWUiOiJKb25hdGhhbiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiNzg5MC0xMjM0IiwianRpIjoiNDZhMmM0MjktOTlmZS00MTVjLThlOWEtYzgyNGRkYjZmYTc2IiwibmJmIjoxNzkxMDM2MjA2LCJleHAiOjE3OTEwNDM0MDYsImlhdCI6MTc5MTAzNjIwNiwiaXNzIjoiUHJ1ZWJhQWJhbmtBcGkiLCJhdWQiOiJQcnVlYmFBYmFua0NsaWVudHMifQ.8_ZwXb51wTcXd0AhXsZX3lHPssAXnqJ7-fzG2ychpPk
+Accept: application/json
+
+
+###
+DELETE {{PruebaAbank_HostAddress}}/2
+Accept: application/json
+
+###
+PUT {{PruebaAbank_HostAddress}}/4
+Content-Type: application/json
+Accept: application/json
+{
+  "nombres": "Jonathan",
+  "apellidos": "Aguirre",
+  "fechaNacimiento": "1992-10-03T00:00:00Z",
+  "direccion": "San Salvador, El Salvador",
+  "password": "MiPasswordSeguro123",
+  "telefono": "7890-1234",
+  "email": "ag.aguirre@abank.com.sv"
+}
