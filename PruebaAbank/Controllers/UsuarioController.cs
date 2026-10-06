@@ -66,6 +66,11 @@ namespace PruebaAbank.Controllers
                 Telefono = telefonoYPasswordDTO.Telefono
             };
             var usuarioDetalleDTO = await Mediator.Send(consulta);
+            if (usuarioDetalleDTO is null)
+            {
+                return Unauthorized(new { message = "Teléfono o contraseña incorrectos." });
+            }
+
             var tokenJwt = this.GenerarTokenJwt(usuarioDetalleDTO);
 
             var respuesta = new LoginResponseDTO
